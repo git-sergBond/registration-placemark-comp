@@ -2,10 +2,31 @@
 <html lang="en">
   <head>
     <meta charset="utf-8">
-    <title>registration-placemark-comp</title>
+    <title>Регистрация метки</title>
+    <link rel="stylesheet" type="text/css" href="src/css/main.css">
   </head>
   <body>
-    <div id="app"></div>
-    <script src="/dist/build.js"></script>
+    <div id="app">
+      <yandex-map class="ymap" zoom="8" :controls="['zoomControl']" :coords="coords" @map-was-initialized="initHandler"></yandex-map>
+      <div class="info">
+        <p>{{send.info}}</p>
+        <h3>Регистрация</h3>
+        <p>имя</p>
+        <input type="text" v-model="send.name">
+        <p>ссылка на картинку</p>
+        <input type="text" v-model="send.imageUrl">
+        <p>адрес</p>
+        <input type="text" v-model="send.address">
+        <p>телефонный номер</p>
+        <input type="text" v-model="send.phoneNumber">
+        <p>Стоимость</p>
+        <input type="text" v-model="send.price">
+        <p>Ссылка на сайт компании</p>
+        <input type="text" v-model="send.url">
+        <br><br>
+        <button @click="sign_up_services">Зарегистрировать услугу</button>
+      </div>
+    </div>
+    <script src="dist/build.js"></script>
   </body>
 </html>
